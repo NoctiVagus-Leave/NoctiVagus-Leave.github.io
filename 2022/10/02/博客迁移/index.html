@@ -4,14 +4,20 @@
   <meta charset="utf-8">
   
   
-  <title>Archives | Hexo</title>
+  <title>博客迁移 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/index.html">
+  <meta name="description" content="换了新电脑后，迁移博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博客迁移">
+<meta property="og:url" content="http://example.com/2022/10/02/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="换了新电脑后，迁移博客">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-10-02T02:22:21.000Z">
+<meta property="article:modified_time" content="2023-01-23T13:24:35.147Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -69,226 +75,106 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/15/Academic%20presentations/" class="archive-article-date">
-  <time class="dt-published" datetime="2023-02-15T09:03:07.000Z" itemprop="datePublished">Feb 15</time>
+        <section id="main"><article id="post-博客迁移" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/10/02/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB/" class="article-date">
+  <time class="dt-published" datetime="2022-10-02T02:22:21.000Z" itemprop="datePublished">2022-10-02</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/02/15/Academic%20presentations/">Academic presentations</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      博客迁移
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>换了新电脑后，迁移博客</p>
+<span id="more"></span>
+
+<p>起初，我以为只要<code>clone</code>博客的Github就行，但是我们利用<code>hexo d</code>上传到GitHub中的是博客网页的相关文件，博客本身包括主题文件等并未上传。</p>
+<p>这里，就可以使用git的分支，来传输文件。每次打开不同电脑，只要在GitHub同步文件下来即可。</p>
+<p><strong>原电脑</strong></p>
+<ol>
+<li><p>在GitHub项目中Settings &gt; Branches中，新建分支hexo，并设置为默认分支</p>
+</li>
+<li><p>在本地任意目录，<code>git clone</code>该仓库<sub><code>clone</code>的默认分支，因此<code>clone</code>的是<code>hexo</code>分支</sub></p>
+</li>
+<li><p>仅仅保留<code>.git</code>文件夹，删除其余所有<sub>实际就是要取.git</sub></p>
+</li>
+<li><p>将博客所有文件除<code>.deply_git</code>复制</p>
+<p>删除<code>theme\</code>下主题可能存在的<code>.git</code><sub><code>.git</code>不允许嵌套</sub></p>
+<p>其中应该有<code>.gitigore</code>文件用以忽略不需要上传的文件</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.DS<span class="built_in">_</span>Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node<span class="built_in">_</span>moudles/</span><br><span class="line">public/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提交到<code>branch</code>分支</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;add branch&quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><strong>新电脑</strong></p>
+<ol>
+<li><p>安装<code>git</code>、<code>nodeJS</code></p>
+</li>
+<li><p>安装<code>hexo</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在目录下<code>git clone</code></p>
+</li>
+<li><p>进入该文件夹，初始化<code>hexo</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成部署</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+</ol>
+<pre><code>
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/10/02/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB/" data-id="clfjxdyjl000u98siaz6h84ft" data-title="博客迁移" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/12/06/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          对加密流量进行快速准确分类的两阶段方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/08/30/matery/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">matery主题的配置</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/14/Writing-Resumes/" class="archive-article-date">
-  <time class="dt-published" datetime="2023-02-14T15:33:36.000Z" itemprop="datePublished">Feb 14</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/02/14/Writing-Resumes/">Writing Résumés</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/14/Drafting-Memos/" class="archive-article-date">
-  <time class="dt-published" datetime="2023-02-14T15:00:25.000Z" itemprop="datePublished">Feb 14</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/02/14/Drafting-Memos/">Drafting Memos</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/14/Drafting-Emails-for-Work/" class="archive-article-date">
-  <time class="dt-published" datetime="2023-02-14T14:21:47.000Z" itemprop="datePublished">Feb 14</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/02/14/Drafting-Emails-for-Work/">Drafting Emails for Work</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/14/Writing-Instructions-Manuals/" class="archive-article-date">
-  <time class="dt-published" datetime="2023-02-14T09:52:02.000Z" itemprop="datePublished">Feb 14</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/02/14/Writing-Instructions-Manuals/">Writing Instructions &amp; Manuals</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/02/14/Technical-Communication/" class="archive-article-date">
-  <time class="dt-published" datetime="2023-02-14T02:04:57.000Z" itemprop="datePublished">Feb 14</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/02/14/Technical-Communication/">Technical Communication</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/01/24/%E5%9B%BE%E5%BA%8A%E5%88%9B%E5%BB%BA/" class="archive-article-date">
-  <time class="dt-published" datetime="2023-01-24T02:34:38.000Z" itemprop="datePublished">Jan 24</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/24/%E5%9B%BE%E5%BA%8A%E5%88%9B%E5%BB%BA/">图床创建</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/06/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/" class="archive-article-date">
-  <time class="dt-published" datetime="2022-12-06T08:17:16.000Z" itemprop="datePublished">Dec 6</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/12/06/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/">对加密流量进行快速准确分类的两阶段方法</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/10/02/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB/" class="archive-article-date">
-  <time class="dt-published" datetime="2022-10-02T02:22:21.000Z" itemprop="datePublished">Oct 2</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/10/02/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB/">博客迁移</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/08/30/matery/" class="archive-article-date">
-  <time class="dt-published" datetime="2022-08-30T09:43:58.000Z" itemprop="datePublished">Aug 30</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/08/30/matery/">matery主题的配置</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-  </nav>
 
 </section>
         

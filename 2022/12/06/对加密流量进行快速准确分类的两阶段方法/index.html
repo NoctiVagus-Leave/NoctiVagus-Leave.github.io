@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>对加密流量进行快速准确分类的两阶段方法 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="使用早期分类加密流量方法TaTic，减少观察待分类加密流量时间且保证准确性。简而言之，先使用简单的方法准确分类出简单流量，之后阶段再对复杂流量进行分类。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对加密流量进行快速准确分类的两阶段方法">
+<meta property="og:url" content="http://example.com/2022/12/06/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="使用早期分类加密流量方法TaTic，减少观察待分类加密流量时间且保证准确性。简而言之，先使用简单的方法准确分类出简单流量，之后阶段再对复杂流量进行分类。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/TaTic%E6%9E%B6%E6%9E%84.png">
+<meta property="og:image" content="http://example.com/images/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/%E7%9F%AD%E5%BA%8F%E5%88%97%E8%AE%AD%E7%BB%83%E5%99%A8%E6%AD%A5%E9%AA%A4.png">
+<meta property="og:image" content="http://example.com/images/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/Ruleset.png">
+<meta property="og:image" content="http://example.com/images/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/HFC%E6%A8%A1%E5%9E%8B.png">
+<meta property="og:image" content="http://example.com/images/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/TCN.png">
+<meta property="article:published_time" content="2022-12-06T08:17:16.000Z">
+<meta property="article:modified_time" content="2023-01-23T13:24:35.149Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="论文">
+<meta property="article:tag" content="网络测量">
+<meta property="article:tag" content="机器学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/TaTic%E6%9E%B6%E6%9E%84.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-对加密流量进行快速准确分类的两阶段方法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/12/06/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2022-12-06T08:17:16.000Z" itemprop="datePublished">2022-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/">网络测量</a>►<a class="article-category-link" href="/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      对加密流量进行快速准确分类的两阶段方法
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>使用早期分类加密流量方法TaTic，减少观察待分类加密流量时间且保证准确性。简而言之，先使用简单的方法准确分类出简单流量，之后阶段再对复杂流量进行分类。</p>
+<span id="more"></span>
+
+<p>[toc]</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><h2 id="背景-amp-动机"><a href="#背景-amp-动机" class="headerlink" title="背景 &amp; 动机"></a>背景 &amp; 动机</h2><p><strong>网络流量分类：</strong>把网络流量与应用协议或产生它的应用程序联系起来</p>
+<p><strong>重要性：</strong>对于网络安全来说，流量分类往往是过滤正常网络流量和发现网络异常的第一步</p>
+<p><strong>面对问题：</strong></p>
+<ul>
+<li>网络流量持续增长，需要<strong>快速准确</strong>的分类</li>
+<li>对于使用越来越多的加密流量，很难兼容速度和准确</li>
+</ul>
+<h2 id="现有技术局限性"><a href="#现有技术局限性" class="headerlink" title="现有技术局限性"></a>现有技术局限性</h2><p><strong>加密网络流量分类的工作分类：</strong></p>
+<ul>
+<li><p>基于流量统计</p>
+<p>使用整个双向流量提取摘要统计<sub>数据包数量、流量持续时间</sub>进行分类</p>
+<p>限制：需要观察所有数据包，不适用于加密流量早期分类</p>
+</li>
+<li><p>基于流量序列</p>
+<p>识别数据包状态序列或消息状态序列进行分类</p>
+<p>限制：对于待分类流量需观察流量中相同数量的数据包，若数量过小不能准确区分，若过大则有很大时间开销</p>
+</li>
+</ul>
+<h2 id="本文方法"><a href="#本文方法" class="headerlink" title="本文方法"></a>本文方法</h2><ol>
+<li><p>用前几个数据包快速确定是容易流量还是硬流量</p>
+<p>若是容易流量，则直接分类</p>
+</li>
+<li><p>使用更多的数据包来进行流量分类</p>
+</li>
+</ol>
+<p><img src="/images/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/TaTic%E6%9E%B6%E6%9E%84.png" alt="TaTic架构"></p>
+<p><strong>TaTic 模块：</strong>训练模块、分类模块</p>
+<ul>
+<li>训练模块：利用标记的流量建立两个流量分类模型<ol>
+<li>简易流量建模阶段</li>
+<li>硬流量建模阶段</li>
+</ol>
+</li>
+<li>分类模块<ol>
+<li>简易流量分类阶段</li>
+<li>硬流量分类阶段</li>
+</ol>
+</li>
+</ul>
+<h2 id="论文贡献"><a href="#论文贡献" class="headerlink" title="论文贡献"></a>论文贡献</h2><ol>
+<li>提出了 TaTic,获得较少平均等待时间又保证分类精度</li>
+<li>提出方法快速分辨“易流量”和“难流量”</li>
+<li>和现有分类方法进行比较</li>
+</ol>
+<h1 id="前人综述"><a href="#前人综述" class="headerlink" title="前人综述"></a>前人综述</h1><h2 id="基于机器学习方法"><a href="#基于机器学习方法" class="headerlink" title="基于机器学习方法"></a>基于机器学习方法</h2><h2 id="基于深度学习方法"><a href="#基于深度学习方法" class="headerlink" title="基于深度学习方法"></a>基于深度学习方法</h2><h1 id="TaTic-训练模块"><a href="#TaTic-训练模块" class="headerlink" title="TaTic 训练模块"></a>TaTic 训练模块</h1><p>基于树的机器学习方法用于分类“易流量”和“难流量”，深度学习网络用于“难流量”</p>
+<h2 id="简易流量建模"><a href="#简易流量建模" class="headerlink" title="简易流量建模"></a>简易流量建模</h2><p><strong>目的：</strong>每个标记的流量的前几个数据包建立一个易流分类模型</p>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>短序列预处理</li>
+<li>短序列训练器</li>
+</ol>
+<h3 id="短序列预处理"><a href="#短序列预处理" class="headerlink" title="短序列预处理"></a>短序列预处理</h3><ol>
+<li><p>截取流量 $flow_i$ 的前 $h$ 数据包 $[p_1^i,\cdots,p_j^i,\cdots,p_{h}^i]$</p>
+</li>
+<li><p>若数据包少于 $h$，则将 $h-N_i$ 空包附加到 $flow_i$ 后</p>
+</li>
+<li><p>从每个数据包中提取 3 个特征：</p>
+<ul>
+<li><p><strong>载荷长度：</strong>$L^i_j$</p>
+</li>
+<li><p><strong>TCP 窗口大小：</strong>$W^i_j$</p>
+</li>
+<li><p><strong>时间戳：</strong>$t^i_j$</p>
+<p>时间戳不可直接使用，要转换为其与前一个数据包的间隔时间$T^i_j$<sub>实践中时间间隔呈梯形函数</sub></p>
+</li>
+</ul>
+</li>
+</ol>
+<p>$$<br>T^i_j&#x3D;<br>\left\{\begin{matrix}<br> \lfloor t_j^i \times 100 \rfloor +1 &amp; 0s\le t^i_j&lt;0.1s\\<br> \lfloor t_j^i \times 200 \rfloor +1 &amp; 0.1s\le t^i_j&lt;1s\\<br> \lfloor t_j^i \times 1000 \rfloor +1 &amp; 1s\le t^i_j\\<br>\end{matrix}\right.<br>$$<br>4. 得到分类特征向量$x’_i&#x3D;[L^i_j,\ W^i_j,\ T^i_j]$</p>
+<ol start="5">
+<li><p>假设有 $M$ 个训练流，将得到训练样本集 $D_{easy}&#x3D;\left{\left(x’_i,y’<em>i\right)\right}^M</em>{i&#x3D;1}$</p>
+<p>其中，$y’_i$ 表示 $flow_i$ 对应应用标签</p>
+</li>
+<li><p>送入短序训练器</p>
+</li>
+</ol>
+<h3 id="短序列训练器"><a href="#短序列训练器" class="headerlink" title="短序列训练器"></a>短序列训练器</h3><p><strong>目的：</strong>将$D_{easy}$中的所有流量分为易流和难流，并直接输出其易流的类别</p>
+<p><strong>算法：</strong>基于树的机器学习算法</p>
+<p><strong>组成：</strong></p>
+<ul>
+<li>子集构建（Subset Construction）</li>
+<li>分类树构建（Classification Tree Building）</li>
+<li>规则生成（Rule Generation）</li>
+</ul>
+<p><img src="/images/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/%E7%9F%AD%E5%BA%8F%E5%88%97%E8%AE%AD%E7%BB%83%E5%99%A8%E6%AD%A5%E9%AA%A4.png" alt="短序列训练器步骤"></p>
+<p><strong>子集构建（Subset Construction）：</strong></p>
+<ul>
+<li><p>目的：对 $D_{easy}$ 进行多次随机抽样，形成几个不同的训练子集</p>
+</li>
+<li><p>优点：避免单一训练集构建造成过拟合</p>
+</li>
+<li><p>操作：</p>
+<ol>
+<li><p>从 $D_{easy}$ 中抽取 $M’&#x3D;\alpha\times M$ 样本，组成集合$Set_i$</p>
+<p>其中，$\alpha$ 为抽样率，遵循 “632+Bootstrap “方法，$\alpha&#x3D;0.632$</p>
+</li>
+<li><p>重复上述操作 $T$ 次，得到新集合 $D’_{easy}&#x3D;{Set_1, \cdots , Set_i,\cdots, Set_T }$</p>
+</li>
+</ol>
+</li>
+</ul>
+<p><strong>分类树构建（Classification Tree Building）：</strong></p>
+<ul>
+<li>目的：使用 $D’_{easy}$构建多个分类树模型<sub>每个分类树用来区分一个流量为易流还是难流</sub></li>
+<li>操作：为 $Set_i$ 建立分类树 $Tree_i$</li>
+</ul>
+<p><strong>规则生成（Rule Generation）：</strong></p>
+<ul>
+<li>目的：对于 $Tree_i$, 选择一些关键叶子节点<sub>类别</sub>，生成一个由多个规则组成的分类规则集</li>
+<li>步骤：<ol>
+<li>对于 $Tree_i$，选择只包含一个应用类别的叶子节点</li>
+<li>叶子节点可通过节点纯度<sub>基尼、熵</sub>评估</li>
+<li>对于纯度为 $0$ 的叶子<sub>如3、6、8</sub>生成分类规则，标签为叶子节点样本标签</li>
+<li>上述节点组成规则集 $Ruleset_i$</li>
+</ol>
+</li>
+</ul>
+<p><img src="/images/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/Ruleset.png" alt="Ruleset"></p>
+<h2 id="难流建模阶段"><a href="#难流建模阶段" class="headerlink" title="难流建模阶段"></a>难流建模阶段</h2><p><strong>目的：</strong>流中使用相对较多的数据包并构建这些数据包之间的时间关系来实现对难流量的准确分类</p>
+<p><strong>使用有效载荷长度作为其特征：</strong></p>
+<ul>
+<li>有效载荷长度序列反映一个应用流的状态转换关系，适合准确描述每个流</li>
+<li>窗口大小对于一个方向不同数据包数值一般相同，多在易流量阶段作出分类，因此本阶段不必考虑</li>
+<li>间隔时间受网络环境的影响较大，时序关系一般没有很强区分度</li>
+</ul>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>长序列预处理</li>
+<li>长序列训练器</li>
+</ol>
+<h3 id="长序列预处理"><a href="#长序列预处理" class="headerlink" title="长序列预处理"></a>长序列预处理</h3><ol>
+<li>保留流 $flow_i$ 前 $H$ 个数据包，提取有效载荷长度信息</li>
+<li>按照流量数据包顺序排列为有效载荷长度 $x’’_i&#x3D;\left[L^i_j\right]$</li>
+<li>对于 $M$ 个标记的训练流，得到训练数据集 $ D_{hard} &#x3D; ( ( x’’_i$, $y’’<em>i ))^M</em>{i&#x3D;1}$ </li>
+<li>将 $D_{hard}$ 送入长序列训练器</li>
+</ol>
+<h3 id="长序列训练器"><a href="#长序列训练器" class="headerlink" title="长序列训练器"></a>长序列训练器</h3><p><strong>算法：</strong>HFC 模型，同时考虑了计算效率和计算效果</p>
+<p><img src="/images/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/HFC%E6%A8%A1%E5%9E%8B.png" alt="HFC 模型"></p>
+<p><strong>一热编码层：</strong></p>
+<ul>
+<li><p><strong>目的：</strong>将每个有效载荷长度的分类意义与它的数字值分开，转换为离散向量，使神经网络更容易训练</p>
+</li>
+<li><p><strong>步骤：</strong></p>
+<p>将 $x’’_{i}&#x3D;[L_j^i]$ 转换为稀疏矩阵 $\mathbf{o^i}$ </p>
+<p>$\mathbf{o^i}&#x3D;[o_1^i,o_2^i,\cdots,o^i_j,\cdots,o^i_H],\ \ \mathbf{o^i}\in R^{H\times d}$</p>
+<p>其中 $o^i_j$ 对应于 $x’’_i$ 的第 $j$ 个有效载荷长度 $L^i_j$，它是一个 $d$ 维向量（$d$ 即最大有效载荷长度）</p>
+<p>具体来说，$o^i_j &#x3D; [0, 0, \cdots , 1, \cdots , 0]$，其中$L^i_j$的值的维度为 “$1$”，其他维度为 “$0$”</p>
+</li>
+</ul>
+<p><strong>二维卷积层：</strong></p>
+<ul>
+<li><p><strong>目的：</strong>为一热编码层的输入张量建立多个特征图</p>
+</li>
+<li><p><strong>步骤：</strong></p>
+<ol>
+<li><p>将 $C_0$ “过滤器”分别乘以其输入</p>
+<p>其中每个过滤器是一个大小为 $(1, d)$ 的参数矩阵</p>
+<p>$1\times d$ 卷积操作有助于将一热编码所得张量大小恢复到原始输入<sub>$H \times 1$</sub></p>
+</li>
+<li><p>同时构建 $ C_0$ 个不同的特征图</p>
+</li>
+<li><p>对于输入 $ x’’_i$，该层的输出用 $X_i\in R^{C_0\times H}$ 表示</p>
+</li>
+</ol>
+</li>
+</ul>
+<p><strong>时间卷积网络（TCN）：</strong></p>
+<ul>
+<li><p><strong>目的：</strong>在一个长的数据序列中建立元素之间的关系，提取有代表性的分类特征</p>
+</li>
+<li><p><strong>组成：</strong>由 $L$ 个残差块组成</p>
+<ul>
+<li>膨胀卷积层</li>
+<li>权重正则层</li>
+<li>裁剪层</li>
+<li>$ReLU$ 层</li>
+<li>$DropOut$ 层</li>
+</ul>
+<p><img src="/images/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/TCN.png" alt="TCN"></p>
+</li>
+<li><p><strong>膨胀卷积层：</strong>核心功能层</p>
+<ul>
+<li>扩张率：超参数，定义处理特征图时在内核参数之间添加的零空间</li>
+<li>优点：在不引入新的可训练参数的情况下增加接收场</li>
+</ul>
+</li>
+<li><p><strong>参数</strong></p>
+<ul>
+<li>卷积核大小：$K$</li>
+<li>扩张率：$2(r-1)$</li>
+</ul>
+</li>
+<li><p><strong>输入：</strong></p>
+<ul>
+<li>第 $1$ 个残差块的输入为二维卷积层的输出</li>
+<li>第 $r$ 个残差块输入为 $r-1$ 输出</li>
+</ul>
+</li>
+<li><p><strong>输出：</strong></p>
+<p>使用裁剪层保留膨胀卷积操作后得到的数据的前 $H$ 维</p>
+<p>最后 $2$ 个状态送入分类层</p>
+</li>
+</ul>
+<p><strong>分类层：</strong></p>
+<ul>
+<li><p>组成：$2$ 个全连接层</p>
+</li>
+<li><p>每层的输出神经元数量：$64$ 和 $R$</p>
+</li>
+<li><p>最后一全连接层激活函数：softmax</p>
+</li>
+</ul>
+<h1 id="Tatic-分类模块"><a href="#Tatic-分类模块" class="headerlink" title="Tatic 分类模块"></a>Tatic 分类模块</h1><ol>
+<li>简单流量分类阶段：使用在易流建模阶段产生的易流分类模型来确定该流量是易流还是硬流</li>
+<li>对于在易流分类阶段可以分类的流量，这个易流分类阶段将直接输出其应用标签</li>
+<li>否则，硬流分类阶段对前一阶段未分类的流量进行处理并分配标签</li>
+</ol>
+<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><ol>
+<li><em>TLS应用追踪：</em></li>
+<li></li>
+</ol>
+<h2 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h2><h2 id="易流量参数选择"><a href="#易流量参数选择" class="headerlink" title="易流量参数选择"></a>易流量参数选择</h2><h2 id="难流量参数选择"><a href="#难流量参数选择" class="headerlink" title="难流量参数选择"></a>难流量参数选择</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/12/06/%E5%AF%B9%E5%8A%A0%E5%AF%86%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%87%86%E7%A1%AE%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%96%B9%E6%B3%95/" data-id="clfjxdyjm000x98siewy34o0i" data-title="对加密流量进行快速准确分类的两阶段方法" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/" rel="tag">网络测量</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/01/24/%E5%9B%BE%E5%BA%8A%E5%88%9B%E5%BB%BA/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          图床创建
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/10/02/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">博客迁移</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/">网络测量</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%8B%B1%E8%AF%AD/">英语</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/" rel="tag">网络测量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD/" rel="tag">英语</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 16.67px;">博客</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 20px;">数学</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/" style="font-size: 10px;">网络测量</a> <a href="/tags/%E8%8B%B1%E8%AF%AD/" style="font-size: 16.67px;">英语</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 10px;">论文</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/02/15/Academic%20presentations/">Academic presentations</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/14/Writing-Resumes/">Writing Résumés</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/14/Drafting-Memos/">Drafting Memos</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/14/Drafting-Emails-for-Work/">Drafting Emails for Work</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/14/Writing-Instructions-Manuals/">Writing Instructions &amp; Manuals</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

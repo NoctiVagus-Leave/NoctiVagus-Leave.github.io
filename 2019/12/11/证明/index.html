@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>证明 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="数学中最难的证明">
+<meta property="og:type" content="article">
+<meta property="og:title" content="证明">
+<meta property="og:url" content="http://example.com/2019/12/11/%E8%AF%81%E6%98%8E/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="数学中最难的证明">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/Jarrycow/picHost/main/advancedMath/%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86%E8%A7%A3%E9%A2%98.png">
+<meta property="article:published_time" content="2019-12-10T17:07:50.000Z">
+<meta property="article:modified_time" content="2023-01-25T17:39:45.523Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Jarrycow/picHost/main/advancedMath/%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86%E8%A7%A3%E9%A2%98.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-证明" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/12/11/%E8%AF%81%E6%98%8E/" class="article-date">
+  <time class="dt-published" datetime="2019-12-10T17:07:50.000Z" itemprop="datePublished">2019-12-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      证明
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>数学中最难的证明</p>
+<span id="more"></span>
+
+<h1 id="中值定理"><a href="#中值定理" class="headerlink" title="中值定理"></a>中值定理</h1><h2 id="闭区间四大定理"><a href="#闭区间四大定理" class="headerlink" title="闭区间四大定理"></a>闭区间四大定理</h2><p><strong><font color="red">条件：</font></strong>$f(x)\in \text{C}_{\left[ a,b \right]}$</p>
+<p><strong>有界定理：</strong>$f(x)$在$[a,b]$上必有界<sub>开区间不成立</sub></p>
+<p><strong>最值定理：</strong>$f(x)$一定存在最大值$M$和最小值$m$<sub>开区间不成立</sub></p>
+<p><strong>介值定理：</strong>$\forall \mu \in[A,B]$，则$\exists \xi \in (a,b)$，使得$f(\xi)&#x3D;\mu$</p>
+<p><strong><font color="red"><strong>推论：</strong></font></strong> 标志——$\xi\in[a,b]$</p>
+<p><font color="blue">闭区间连续$\Rightarrow $最值定理$\Rightarrow$存在$M$和$m$\Rightarrow$介值定理</font></p>
+<p><strong>零点定理：</strong>标志——$\xi\in(a,b) $</p>
+<ul>
+<li>方程的根问题</li>
+<li>中值定理证明：零点定理+罗尔&#x2F;拉格朗日</li>
+</ul>
+<h2 id="三大中值定理"><a href="#三大中值定理" class="headerlink" title="三大中值定理"></a>三大中值定理</h2><p><strong><font color="red">条件：</font></strong>$f(x)\in \text{C}_{\left[ a,b \right]}$、$f(x)\in \text{D}_{\left( a,b \right)}$$</p>
+<p><strong>费马引理：</strong>$f(x)在x_0处\left\{ \begin{array}{l}
+	\text{可导}\\
+	\text{取极值}\\
+\end{array} \right. \Rightarrow f'(x_0)=0$<sub>证明罗尔</sub></p>
+<p><strong>罗尔中值定理：</strong>$f\left( a \right) &#x3D;f\left( b \right) \Rightarrow \exists\xi\in(a,b)$，$f’(\xi)&#x3D; 0$</p>
+<p><strong>拉格朗日中值定理：</strong>$\exists\xi\in(a,b)$，$f’(\xi)&#x3D;\dfrac{f(b)-f(a)}{b-a}$</p>
+<p>变式：$$f(b)-f(a)=f'(\xi)(b-a)\\f(b)-f(a)=f'\left[a+\theta(b-a)\right](b-a)，0<\theta<1\\f\left( x_0+\bigtriangleup x \right) -f\left( x_0 \right) =f'\left( x_0+\theta \bigtriangleup x \right) \cdot \bigtriangleup x$$</p>
+<p><strong>柯西中值定理：</strong>$\exists\xi\in(a,b) $，$\dfrac{f(b)-f(a)}{g(b)-g(a)}&#x3D;\dfrac{f’(\xi)}{g’(\xi)}$</p>
+<h2 id="泰勒中值定理"><a href="#泰勒中值定理" class="headerlink" title="泰勒中值定理"></a>泰勒中值定理</h2><p><strong>泰勒公式：</strong></p>
+<ul>
+<li><strong>拉格朗日余项：</strong>$f(x)&#x3D;f(x_0)+f’(x_0)(x-x_0)+…+\dfrac{1}{n!}f^{(n)}(x_0)(x-x_0)^n+\dfrac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}$</li>
+<li><strong>佩亚诺余项：</strong>$f(x)&#x3D;f(x_0)+f’(x_0)(x-x_0)+…+\dfrac{1}{n!}f^{(n)}(x_0)(x-x_0)^n+\text o((x-x_0)^n)$</li>
+</ul>
+<p><strong>积分中值定理：</strong>$\exists \xi \in [a,b]$，$\int_a^b{f\left( x \right) dx&#x3D;f\left( \xi \right) \left( b-a \right)}\<br>\int_a^bf(x)g(x)dx&#x3D;f(\xi)\int_a^b   g(x)dx$</p>
+<h1 id="题型"><a href="#题型" class="headerlink" title="题型"></a>题型</h1><h2 id="最值定理-介值定理"><a href="#最值定理-介值定理" class="headerlink" title="最值定理+介值定理"></a>最值定理+介值定理</h2><p><font color="blue"><strong>标志</strong></font>：</p>
+<ul>
+<li><p>$\xi\in[a,b]$，没有导数，</p>
+</li>
+<li><p>题干出现$a&lt;x_1&lt;x_2&lt;\cdots&lt;x_n&lt;b$的多点问题</p>
+</li>
+</ul>
+<p><strong>步骤</strong></p>
+<p>由题意得$f(x)$在$[a,b]$连续</p>
+<p>根据最值定理，故有$m\le f(x)\le M$，$x\in[a,b]$</p>
+<p>其中$M$是$f(x)$在$[a,b]$上的最大值，$m$是$f(x)$在$[a,b]$上的最小值</p>
+<p>于是$m\le f(x_1)\le M \\\\ m\le f(x_2)\le M\\\\  \vdots \\\\ m\le f(x_n)\le M$</p>
+<p>故有$k_1m\le k_1f(x_1)\le k_1M\\\\k_1m\le k_1f(x_2)\le k_1M\\\\ \vdots\\k_1m\le k_1f(x_n)\le k_1M$</p>
+<p>进而可得$(k_1+k_2+\cdots+k_n)m\le k_1f(x_1)+k_2f(x_2)+\cdots+k_nf(x_n)\le(k_1+k_2+\cdots+k_n)M$
+
+整理得$m\le \dfrac{k_1f(x_1)+k_2f(x_2)+\cdots+k_nf(x_n)}{k_1+k_2+\cdots+k_n}\le M$
+
+即$m\le G(x)\le M$</p>
+<p>由介值定理可得，至少存在$\in\in[a,b]$，使得$f(\xi)&#x3D;G(x)$</p>
+<h2 id="结论有等式-不涉及求导-或者-f-xi-x3D-0"><a href="#结论有等式-不涉及求导-或者-f-xi-x3D-0" class="headerlink" title="结论有等式+不涉及求导  或者  $f(\xi)&#x3D;0$"></a>结论有等式+不涉及求导  或者  $f(\xi)&#x3D;0$</h2><p><strong>定理：</strong>零点定理</p>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>由题意构造函数$G(x)$</li>
+<li>故可知$G(x)$在$[a,b]$上连续</li>
+<li>且$G(a)&#x3D;\cdots$，$G(b)&#x3D;\cdots$</li>
+<li>即$G(a)G(b)&lt;0$</li>
+<li>故由零点定理，可知存在$\xi\in(a,b)$，使得$G(\xi)&#x3D;0$</li>
+</ol>
+<h2 id="结论有-f’-xi-x3D-0-并涉及-f’-xi"><a href="#结论有-f’-xi-x3D-0-并涉及-f’-xi" class="headerlink" title="结论有$f’(\xi)&#x3D;0$并涉及$f’(\xi)$"></a><strong>结论有$f’(\xi)&#x3D;0$并涉及$f’(\xi)$</strong></h2><p><strong>定理：</strong>罗尔定理</p>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>由题意构造函数$F(x)$</li>
+<li>则$F(x)$在区间$[a,b]$上连续，在$(a,b)$内可导</li>
+<li>又已知$f(a)&#x3D;…$，$f(b)&#x3D;…$</li>
+<li>所以$F(a)&#x3D;F(b)$</li>
+<li>故由罗尔定理得，存在$\xi\in(a,b)$，使得$F’(\xi)&#x3D;0$</li>
+</ol>
+<h2 id="结论中有-f’’-xi-x3D-0-或-涉及-f’’-xi"><a href="#结论中有-f’’-xi-x3D-0-或-涉及-f’’-xi" class="headerlink" title="结论中有$f’’(\xi)&#x3D;0$ 或 涉及 $f’’(\xi)$"></a><strong>结论中有$f’’(\xi)&#x3D;0$ 或 涉及 $f’’(\xi)$</strong></h2><p><strong>定理：</strong>优先两次罗尔定理</p>
+<p><strong>计算$f’’(\xi)&#x3D;0$步骤</strong></p>
+<ol>
+<li>由题意，$\varphi(x)$在$[a,b]$上连续，在$(a,b)$内可导</li>
+<li>且$\varphi(a)&#x3D;\varphi(b)$</li>
+<li>由罗尔定理得，存在$\eta\in(a,b)$，使得$\varphi’(\eta)&#x3D;0$</li>
+<li>又$\varphi’(x)&#x3D;…$</li>
+<li>所以$\varphi’(x_0)&#x3D;\varphi’(\eta)$</li>
+<li>再对$\varphi’(x)$在$[x_0,\eta]$上使用罗尔定理</li>
+<li>存在$\xi\in(x_0,\eta)\subset (a,b)$，使得$\varphi’’(\xi)&#x3D;0$</li>
+</ol>
+<h2 id="证明-f-n-xi-x3D-k"><a href="#证明-f-n-xi-x3D-k" class="headerlink" title="证明$f^{(n)}(\xi)&#x3D;k$"></a>证明$f^{(n)}(\xi)&#x3D;k$</h2><p><strong>定理：</strong>拉格朗日</p>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>因为$f(x)$在$[0,+\infty]$上可导</li>
+<li>所以$f(x)$在$[a,\eta]$上符合拉格朗日中值定理的条件</li>
+<li>故存在$\xi \in(a,\eta)$，使得$f(\eta)-f(a)&#x3D;\eta f’(\xi)$成立</li>
+<li>又$f(a)&#x3D;…$，$f(\eta)&#x3D;…$</li>
+</ol>
+<h2 id="方程的根"><a href="#方程的根" class="headerlink" title="方程的根"></a>方程的根</h2><p><strong>定理：</strong>转化为$f^{(n)}(\xi)&#x3D;0$</p>
+<blockquote>
+<p>$n&#x3D;0$时，零点定理<br>$n&#x3D;1$时，罗尔定理<br>$n&#x3D;2$时，对$f’(x)$罗尔定理<br>$n&gt;2$时，多次对高阶导数罗尔</p>
+</blockquote>
+<h2 id="证明不等式"><a href="#证明不等式" class="headerlink" title="证明不等式"></a>证明不等式</h2><p><strong>原理</strong></p>
+<ol>
+<li><p>做差求导（$x_0 $）</p>
+<p><strong>步骤</strong></p>
+<ol>
+<li>求得$x_0$</li>
+<li>根据$f’$判定$x_0$范围</li>
+</ol>
+</li>
+<li><p>拉格朗日（连续不等 或 二阶导）</p>
+<p><strong>步骤</strong></p>
+<ol>
+<li><p>由已知可得$\varphi(x)$大小关系</p>
+</li>
+<li><p>对$\varphi(x)$分别在区间$[a,b],[c,d]$上应用拉格朗日中值定理</p>
+</li>
+<li><p>存在两个不同点$\eta_1\in(a,b),\eta_2\in(c,d)$</p>
+<p>使得$\varphi’(\eta_1)&#x3D;\dfrac{\varphi(b)-\varphi(a)}{b-a}&gt;0$，$\varphi’(\eta_2)&#x3D;\dfrac{\varphi(c)-\varphi(d)}{c-d}&lt;0$</p>
+</li>
+<li><p>对$\varphi’(x)$在区间$[\eta_1,\eta_2]$上应用拉格朗日中值定理</p>
+</li>
+<li><p>至少存在$\xi\in(\eta_1,\eta_2)$，使得$\varphi’’(\xi)&#x3D;\dfrac{\varphi’(\eta_2)-\varphi’(\eta_1)}{\eta_2-\eta_1}$</p>
+</li>
+</ol>
+</li>
+<li><p>泰勒（出现阶差 或 三阶导）</p>
+<p><strong>泰勒公式证明等式与不等式</strong></p>
+<ol>
+<li>$f’’(\xi)$以及更高阶</li>
+<li>条件阶差$(f’,f’’,f’’’)$</li>
+<li>需要$n$阶导或$n$次方</li>
+</ol>
+<p><strong>步骤</strong></p>
+<ol>
+<li>函数$g(x)$在$x&#x3D;x_0$处展开成带有拉格朗日余项的$n$阶泰勒公式，得$…$</li>
+</ol>
+</li>
+</ol>
+<h2 id="证明有界"><a href="#证明有界" class="headerlink" title="证明有界"></a>证明有界</h2><p><strong>定理：</strong>泰勒</p>
+<p><strong>步骤</strong></p>
+<ol>
+<li>由泰勒公式，得</li>
+<li>$g(x)&#x3D;g(x_0)+g’(x_0)(x-x_0)+\dfrac{g’’(\xi)}{2!}(x-x_0)^2$，$\xi$在$x_0$与$x$之间</li>
+<li>则有$g(a)&#x3D;g(x)+g’(x)(a-x)+\dfrac{g’’(\xi_1)}{2!}(a-x_0)^2$，$\xi_1$在$a$与$x$之间</li>
+<li>则有则有$g(b)&#x3D;g(x)+g’(x)(b-x)+\dfrac{g’’(\xi_2)}{2!}(b-x_0)^2$，$\xi_2$在$x$与$b$之间</li>
+<li>所以$g(b)-g(a)&#x3D;g’(x)+\dfrac{g’’(\xi_2)}{2!}(b-x_0)^2-\dfrac{g’’(\xi_1)}{2!}(a-x_0)^2$，$\xi_1$在$a$与$x$之间，$\xi_2$在$x$与$b$之间</li>
+<li>经整理，得$g’(x)&#x3D;g(b)-g(a)+\dfrac{g’’(\xi_2)}{2!}(b-x_0)^2-\dfrac{g’’(\xi_1)}{2!}(a-x_0)^2$</li>
+<li>$\left|g’(x)\right|&#x3D;\left|g(b)\right|+\left|g(a)\right|+\dfrac{g’’(\xi_2)}{2!}(b-x_0)^2+\dfrac{g’’(\xi_1)}{2!}(a-x_0)^2$</li>
+</ol>
+<h2 id="同一个函数有两个自变量"><a href="#同一个函数有两个自变量" class="headerlink" title="同一个函数有两个自变量"></a>同一个函数有两个自变量</h2><p><strong>标志：</strong>存在$\xi,\eta\in(a,b)$</p>
+<p><strong>定理：</strong></p>
+<ol>
+<li>两次拉格朗日</li>
+<li>一次拉格朗日+柯西<sub>除了$f(x)$外还有其他函数</sub></li>
+<li>两次柯西<sub>几乎不用</sub></li>
+</ol>
+<p><strong>两次拉格朗日步骤</strong>（及其对称）</p>
+<ol>
+<li><p>由题意构造函数$G(x) $</p>
+</li>
+<li><p>则有$G(a)&#x3D;G(b)$，且$G’(x)&#x3D;\cdots$</p>
+</li>
+<li><p>对于$G(x)$分别在$[a,c]$和$[c,b]$上使用拉格朗日中值定理</p>
+<p>得$G(c)-G(a)&#x3D;(c-a)G’(\xi_1)$，$\xi_1\in(a,c)$</p>
+<p>及$G(b)-G(c)&#x3D;(b-c)G’(\xi_2)$，$\xi_2\in(c,b)$</p>
+</li>
+<li><p>相加&#x2F;相减得$\cdots $</p>
+</li>
+</ol>
+<p><strong>拉格朗日+柯西步骤</strong></p>
+<ol>
+<li>由题意，令$\varphi(x)&#x3D;\cdots$，可得$f(x)$和$\varphi(x)$在$[a,b]$上连续，在$(a,b) $内可导，且$\varphi’(x)&#x3D;0$  $(x\in[a,b])$</li>
+<li>故满足柯西中值定理条件，存在$\eta\in(a,b)$，使得$\dfrac{f(b)-f(a)}{\varphi(b)-\varphi(a)}&#x3D;\dfrac{f’(\eta)}{\varphi’(\eta)}$，即$…①$</li>
+<li>又由拉格朗日中值定理可知，存在$\xi\in(a,b)$，使得$f’(\xi)&#x3D;\dfrac{f(b)-f(a)}{b-a}$</li>
+<li>整理得$f(b)-f(a)&#x3D;f’(\xi)(b-a)\cdots ②$</li>
+<li>将②代入①中，得$\dfrac{f’(\xi)(b-a)}{\varphi(b)-\varphi(a)}&#x3D;\dfrac{f’(\eta)}{\varphi’(\eta)}$</li>
+<li>即$…$，其中$\xi,\eta\in(a,b)$</li>
+</ol>
+<h2 id="结论中有两个函数但同一个自变量"><a href="#结论中有两个函数但同一个自变量" class="headerlink" title="结论中有两个函数但同一个自变量"></a>结论中有两个函数但同一个自变量</h2><p><strong>定理：</strong>柯西中值定理<br><strong>步骤</strong></p>
+<ol>
+<li>由题意，构造函数$F(x)$和$G(x)$</li>
+<li>则由柯西中值定理，得$\dfrac{F(m)-F(n)}{G(m)-G(n)}&#x3D;\dfrac{F’(\xi)}{G’(\xi)}$，$\xi\in(m,n)$</li>
+<li>即$…$</li>
+</ol>
+<h2 id="结论涉及某函数为常数"><a href="#结论涉及某函数为常数" class="headerlink" title="结论涉及某函数为常数"></a><strong>结论涉及某函数为常数</strong></h2><p><strong>定理：</strong>拉格朗日推论</p>
+<p><strong>步骤</strong></p>
+<ol>
+<li>由题意构造函数$G(x)$</li>
+<li>则$G’(x)$</li>
+<li>又$\cdots$，所以$G’(x)&#x3D;0$</li>
+<li>由拉格朗日中值定理的推论，得$G(x)&#x3D;\text C$（其中$\text C$为常数）</li>
+</ol>
+<h2 id="验证函数是否满足中值定理"><a href="#验证函数是否满足中值定理" class="headerlink" title="验证函数是否满足中值定理"></a>验证函数是否满足中值定理</h2><p><strong>步骤：</strong>分段点连续可导</p>
+<p>$f(a+)&#x3D;f(a-)$</p>
+<p>可导用定义证明</p>
+<p>综上所述，$f(x)$在$[a,b]$上满足XX的条件，因而满足XX定理</p>
+<h2 id="积分符号"><a href="#积分符号" class="headerlink" title="积分符号"></a>积分符号</h2><p><strong>定理：</strong>积分中值定理</p>
+<ol>
+<li>积分中值定理</li>
+<li>变上限积分求导<sub>不等式</sub></li>
+</ol>
+<h1 id="中值定理解题"><a href="#中值定理解题" class="headerlink" title="中值定理解题"></a>中值定理解题</h1><ol>
+<li>确定区间</li>
+<li>确定辅助函数<ul>
+<li>$f(x)+f’(x)\Rightarrow F(x)&#x3D;f(x)e^x$</li>
+<li>$f’(x)-f(x)\Rightarrow f(x)e^{-x}$</li>
+<li>$f’(x)+kf(x)\Rightarrow F(x)&#x3D;f(x)e^{kx}$</li>
+<li>$2F(x)f(x)\Rightarrow F(x)&#x3D;2f(x)f’(x)$</li>
+<li>$[f’(x)]^2+f(x)f’’(x)\Rightarrow F(x)&#x3D;f(x)f’(x)$</li>
+<li>$e^{\varphi (x)}[f’(x)+f(x)\varphi ‘(x)]\Rightarrow e^ {\varphi(x)}f(x)$</li>
+<li>$xf’(x)+kf(x)\Rightarrow x^kf(x)$</li>
+<li>$f’(x)+knx^{n-1}f(x)\Rightarrow \text e^{kx^{n-1}}f(x)$</li>
+<li>$xf’(x)-f(x)\Rightarrow \dfrac{f(x)}x$</li>
+<li>$f’g-gf’\Rightarrow\dfrac fg$</li>
+<li>$f’+P(x)f\Rightarrow \text {Ce}^{-\int P\text dx}$</li>
+</ul>
+</li>
+<li>确定使用定理<ul>
+<li><strong>零点定理：</strong>找$f(c)&#x3D;0【\left{ \begin{array}{l}<br>f\left( a \right) &#x3D;0\<br>  f\left( b \right) &#x3D;0\<br>\end{array}\Rightarrow f\left( c \right) &#x3D;0 \right. 】$</li>
+<li><strong>介值定理：</strong>找$f(c)&#x3D;\mu【\left{ \begin{array}{l}<br>f\left( a \right) &#x3D;A\<br>  f\left( b \right) &#x3D;B\<br>  A&lt;\mu &lt;B\<br>\end{array} \right. \Rightarrow f\left( c \right) &#x3D;\mu 】$</li>
+<li><strong>费马定理：</strong>证明$f’(\xi)&#x3D;0【\xi为可导极值点】$</li>
+<li><strong>罗尔定理：</strong><ul>
+<li>证明$F’(\xi)&#x3D;0$</li>
+<li>证明$F^{(n)}(\xi)&#x3D;0$</li>
+</ul>
+</li>
+<li><strong>拉格朗日中值定理：</strong><ul>
+<li>题设有$f$与$f’$关系或$f(b)-f(a)$</li>
+<li>证明$F’(\xi)&gt;0$</li>
+<li>证明$F^{(n)}(\xi)&gt;0$</li>
+<li>证明$F(f’(\eta ),f’(\tau))&#x3D;0$</li>
+<li>单调性</li>
+</ul>
+</li>
+<li><strong>泰勒公式：</strong></li>
+<li><ul>
+<li>题设包含$f$与$f^{n}$关系</li>
+<li>证明$F^{(n)}(\xi)&gt;0$</li>
+<li>$f’’(x)$考凹凸性</li>
+</ul>
+</li>
+<li><strong>柯西中值定理：</strong><ul>
+<li>两个具体函数</li>
+<li>一个具体函数与一个抽象函数</li>
+<li>与拉格朗日中值定理综合</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/advancedMath/%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86%E8%A7%A3%E9%A2%98.png" alt="中值定理解题"><br>出现端点为0与一阶导，或有三个点的值，尝试拉格朗日</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/12/11/%E8%AF%81%E6%98%8E/" data-id="clfjxdyk4002h98si3f5ecd1k" data-title="证明" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/01/24/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          博客搭建
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/12/10/%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">无穷级数</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/">网络测量</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%8B%B1%E8%AF%AD/">英语</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/" rel="tag">网络测量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD/" rel="tag">英语</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 16.67px;">博客</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 20px;">数学</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/" style="font-size: 10px;">网络测量</a> <a href="/tags/%E8%8B%B1%E8%AF%AD/" style="font-size: 16.67px;">英语</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 10px;">论文</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/02/15/Academic%20presentations/">Academic presentations</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/14/Writing-Resumes/">Writing Résumés</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/14/Drafting-Memos/">Drafting Memos</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/14/Drafting-Emails-for-Work/">Drafting Emails for Work</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/14/Writing-Instructions-Manuals/">Writing Instructions &amp; Manuals</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

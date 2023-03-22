@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>导数与微分 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="求导微分即求函数的变化率变化趋势">
+<meta property="og:type" content="article">
+<meta property="og:title" content="导数与微分">
+<meta property="og:url" content="http://example.com/2019/12/04/%E5%AF%BC%E6%95%B0%E4%B8%8E%E5%BE%AE%E5%88%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="求导微分即求函数的变化率变化趋势">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/Jarrycow/picHost/main/advancedMath/%E5%A4%9A%E5%85%83%E5%BE%AE%E5%88%86.png">
+<meta property="article:published_time" content="2019-12-04T14:51:52.000Z">
+<meta property="article:modified_time" content="2023-01-26T01:41:27.284Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Jarrycow/picHost/main/advancedMath/%E5%A4%9A%E5%85%83%E5%BE%AE%E5%88%86.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-导数与微分" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/12/04/%E5%AF%BC%E6%95%B0%E4%B8%8E%E5%BE%AE%E5%88%86/" class="article-date">
+  <time class="dt-published" datetime="2019-12-04T14:51:52.000Z" itemprop="datePublished">2019-12-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      导数与微分
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>求导微分即求函数的变化率变化趋势</p>
+<span id="more"></span>
+
+<h1 id="一元函数微分"><a href="#一元函数微分" class="headerlink" title="一元函数微分"></a>一元函数微分</h1><h2 id="导数概念"><a href="#导数概念" class="headerlink" title="导数概念"></a>导数概念</h2><p>$$<br>f’(x_0)&#x3D;\underset{\bigtriangleup x \rightarrow 0}{\lim}\dfrac{\bigtriangleup  y}{\bigtriangleup x}&#x3D;\underset{\bigtriangleup x \rightarrow 0}{\lim}\dfrac{f(x+\bigtriangleup x_0)-f(x_0)}{\bigtriangleup x}<br>$$</p>
+<h3 id="导数性质"><a href="#导数性质" class="headerlink" title="导数性质"></a>导数性质</h3><ul>
+<li><p>可导一定连续；连续不一定可导</p>
+<p>可导一定可微；可微一定可导</p>
+<p>可微一定连续；连续不一定可微</p>
+</li>
+<li>$\left. \begin{array}{r}
+  	\exists f_+'\left( x_0 \right)\\
+    	\exists f_-'\left( x_0 \right)\\
+  \end{array} \right\} \Rightarrow f\left( x \right) \in \text{C}_{x=x_0}$
+</li>
+<li><p>对于$f(x)&#x3D;F(x)(x-a)^\alpha$在$x&#x3D;a$处导数</p>
+<ul>
+<li>$\alpha&gt;1$，导数存在且为$0$</li>
+<li>$\alpha&lt;1$，导数不存在</li>
+<li>$\alpha&#x3D;1$，无绝对值则可导，有绝对值$F(a)&#x3D;0$时也可导</li>
+</ul>
+</li>
+</ul>
+<h2 id="求导"><a href="#求导" class="headerlink" title="求导"></a>求导</h2><h3 id="基本求导公式"><a href="#基本求导公式" class="headerlink" title="基本求导公式"></a>基本求导公式</h3><p>$\left( x^a \right)’&#x3D;ax^{a-1}$</p>
+<p>$\left( a^x \right)’&#x3D;a^x\ln a$</p>
+<p>$\left( \text e^x \right)’&#x3D;\text e^x$</p>
+<p>$\left( \log_ax \right)’&#x3D;\dfrac{1}{x\ln a}$</p>
+<p>$\left( \ln\text{|}x| \right)’&#x3D;\dfrac{1}{x}$</p>
+<p>$\left( \sin x \right)’&#x3D;\cos x$</p>
+<p>$\left( \cos x \right)’&#x3D;-\sin x$</p>
+<p>$\left( \tan x \right)’&#x3D;\sec ^2x$</p>
+<p>$\left( \sec x \right)’&#x3D;\sec x\tan x$</p>
+<p>$\left( \csc x \right)’&#x3D;-\csc x\cot x$</p>
+<p>$\left( \cot x \right)’&#x3D;-csc^2x$</p>
+<p>$\left( \arcsin x \right)’&#x3D;\dfrac{1}{\sqrt{1-x^2}}$</p>
+<p>$\left( \arccos x \right)’&#x3D;-\dfrac{1}{\sqrt{1-x^2}}$</p>
+<p>$\left( \arctan x \right)’&#x3D;\dfrac{1}{1+x^2}$</p>
+<p>$\left( \text {arccot} x \right)’&#x3D;-\dfrac{1}{1+x^2}$</p>
+<p>$\ln \left( x+\sqrt{x^2+1} \right)’&#x3D;\dfrac{1}{\sqrt{x^2+1}}$</p>
+<p>$\ln \left( x-\sqrt{x^2+1} \right)’&#x3D;\dfrac{1}{\sqrt{x^2-1}}$</p>
+<p>$\ln \left( x+\sqrt{x^2+a} \right) &#x3D;\dfrac{1}{\sqrt{x^2+a^2}}$</p>
+<p><strong>反函数导数</strong></p>
+<p>$\dfrac{\text{d}x}{\text{d}y}&#x3D;\dfrac{1}{f’(x)}$</p>
+<p>$\dfrac{\text{d}^2x}{\text{d}y^2}&#x3D;-\dfrac{y’’}{(y’)^3}$</p>
+<p>$\dfrac{\text{d}^3x}{\text{d}y^3}&#x3D;\dfrac{3y’’^2-y’y’’’}{y’^5}$</p>
+<p><strong>参数方程导数</strong></p>
+<p>$\dfrac{\text dy}{\text dx}&#x3D;\dfrac{y’_t}{x’_t}$<br>$\dfrac{\text d^2y}{\text dx^2}&#x3D;\dfrac{\text d(\dfrac{\text dy}{\text dx})&#x2F;\text dt}{\text dx&#x2F;\text dt}&#x3D;\dfrac{y’’_tx’_t-y’_tx’’_t}{(x’_t)^3}$</p>
+<p><strong>隐函数求导</strong></p>
+<p>$F(x,y)&#x3D;0$，则$\dfrac{dy}{dx}&#x3D;-\dfrac{F_x’}{F_y’}$</p>
+<p><strong>对数求导</strong>：$\dfrac{y’}{y}&#x3D;y (\ln y)’$</p>
+<p><strong>幂指求导：</strong></p>
+<p>$(u^v)’&#x3D;u^v(v’\ln u+\dfrac {vu’}u)^2$</p>
+<p>$(u^v)’’’&#x3D;u^v(v’\ln u+\dfrac {vu’}u)^2+v’’’\ln u+\dfrac{2u’v’}{u}+\dfrac{v(uu’’-u’^2)}{u^2}$</p>
+<h2 id="导数应用"><a href="#导数应用" class="headerlink" title="导数应用"></a>导数应用</h2><h3 id="判断极值"><a href="#判断极值" class="headerlink" title="判断极值"></a>判断极值</h3>$\underset{x\rightarrow a}{\lim}\dfrac{f\left( x \right) -f\left( a \right)}{\left( x-a \right) ^2}\left\{ \begin{array}{l}>0\ \ \ \ \ \text{极小}\\ 
+	<0\ \ \ \ \ \text{极大}\\
+\end{array} \right. $
+
+<h3 id="判断不可导"><a href="#判断不可导" class="headerlink" title="判断不可导"></a>判断不可导</h3><p>$\underset{x\rightarrow 0}{\lim}\dfrac{f(x+h)-f(k-x)}{g(x)}$可能在$x&#x3D;k$处无定义</p>
+<p>$\underset{x\rightarrow 0}{\lim}\dfrac{f(k+\varphi(x))-f(k)}{g(x)} $若$\varphi(x)、g(x)\ge0$，则只能单侧可导</p>
+<h2 id="高阶导数"><a href="#高阶导数" class="headerlink" title="高阶导数"></a>高阶导数</h2><h3 id="性质-amp-求法"><a href="#性质-amp-求法" class="headerlink" title="性质 &amp; 求法"></a>性质 &amp; 求法</h3><ul>
+<li>$f(x)&#x3D;x^k|x|(k&gt;1)$，则使$f^{(n)}(0)$存在的最高阶数为$k$</li>
+<li>$f^{(k)}(0)&#x3D;k!a_k$ ($a_k$为第$k$项系数)</li>
+</ul>
+<p><strong>高阶求导公式(莱布尼茨公式)：</strong> $(u+v)^{(n)}=u^{(n)}+v^{(n)}\\
+(uv)^{(n)}=\sum ^{n} _{k=0} C_n^ku^{(n-k)}v^{(k)}$</p>
+<p><strong>泰勒公式(麦克劳林展开式)：</strong>$f(x)=\sum ^∞ _{n=0} \dfrac{f^{(n)}(x_0)}{n!}(x-x_0)^n\\
+f(x)=\sum ^∞ _{n=0} \dfrac{f^{(n)}(0)}{n!}x^n$</p>
+<p>$y&#x3D;x^nf(x)$求$y^{(n)}(0)$</p>
+<ol>
+<li>由于$y&#x3D;x^nf(x)$无穷阶可导，则可将其抽象展开为$y&#x3D;\sum_{n&#x3D;0}^{\infty}\dfrac{y^{(n)}(0)}{n!}x^n$</li>
+<li>又因为$y&#x3D;x^nf(x)&#x3D;$展开</li>
+<li>根据函数展开的唯一性，比较1、2公式中的系数，则$\dfrac{y^{(n)}(0)}{n!}&#x3D;(找2中展开的对应次项)$</li>
+</ol>
+<h3 id="常见高阶导数"><a href="#常见高阶导数" class="headerlink" title="常见高阶导数"></a>常见高阶导数</h3><p>$\left( \text{e}^x \right) ^{\left( n \right)}&#x3D;\text{e}^x$</p>
+<p>$\left( \text{e}^{f\left( x \right)} \right) ^{\left( n \right)}&#x3D;n!\text{e}^{nf\left( x \right)}$</p>
+<p>$\left( a^x \right) ^{\left( n \right)}&#x3D;a^x\left( \ln a \right) ^n$ </p>
+<p>$\left( \text{e}^{ax+b} \right) ^{\left( n \right)}&#x3D;a^n\text{e}^{ax+b}$</p>
+<p>$\left[ \sin \left( ax+b \right) \right] ^{\left( n \right)}&#x3D;a^n\sin \left( ax+b+\dfrac{n\pi}{2} \right) $</p>
+<p>$\left[ \cos \left( ax+b \right) \right] ^{\left( n \right)}&#x3D;a^n\cos \left( ax+b+\dfrac{n\pi}{2} \right) $</p>
+<p>$(\arctan x)^{(n)}&#x3D;(n-1)!\cos^ny\cos[ny+\dfrac{(n-1)\pi}2]$</p>
+<p>$\left[ \ln \left( ax+b \right) \right] ^{\left( n \right)}&#x3D;\left( -1 \right) ^{n-1}a^n\dfrac{\left( n-1 \right) !}{\left( ax+b \right) ^n}$</p>
+<p>$\left( \dfrac{1}{ax+b} \right) ^{\left( n \right)}&#x3D;\left( -1 \right) ^na^n\dfrac{n!}{\left( ax+b \right) ^{n+1}}$</p>
+<p>$\left[ \left( x+x_0 \right) ^m \right] ^{\left( n \right)}&#x3D;m\left( m-1 \right) \left( m-2 \right) …\left( m-n+1 \right) \left( x+x_0 \right) ^{m-n}$</p>
+$f(x)=\alpha f_1(x)+\beta f_2(x) \Rightarrow f^{\left( n \right)}\left( x \right) =\alpha f_1^{\left( n \right)}\left( x \right) +\beta f_2^{\left( n \right)}\left( x \right) $
+
+
+
+<p>$\left( uv \right) ^{\left( n \right)}&#x3D;\sum{\text{C}_{n}^{k}u^{\left( n-k \right)}v^{\left( k \right)}}$</p>
+<h1 id="多元函数微分"><a href="#多元函数微分" class="headerlink" title="多元函数微分"></a>多元函数微分</h1><h2 id="连续-amp-偏导-amp-可微"><a href="#连续-amp-偏导-amp-可微" class="headerlink" title="连续 &amp; 偏导 &amp; 可微"></a>连续 &amp; 偏导 &amp; 可微</h2><p><img src="https://raw.githubusercontent.com/Jarrycow/picHost/main/advancedMath/%E5%A4%9A%E5%85%83%E5%BE%AE%E5%88%86.png"></p>
+$\text{偏导数连续}\Rightarrow \text{可微}\Rightarrow \left\{ \begin{array}{l}
+	\text{偏导数存在}\left( \text{某方向双侧} \right)\\
+	\text{连续}\Rightarrow \text{极限存在}\left( \text{全方向} \right)\\
+	\text{方向导数存在}\left( \text{某方向单侧} \right)\\
+\end{array} \right. $
+
+<p><strong>极限：</strong>$|f(x,y)-A|&lt;\varepsilon$</p>
+<p><strong>连续：</strong>$\underset{y\rightarrow y_0}{\underset{x\rightarrow x_0}{\lim}}f(x_0,y_0)&#x3D;f(x_0,y_0)$</p>
+<p><strong>偏导数：</strong>$f_x’(x_0,y_0)&#x3D;\left. \frac{\partial f}{\partial x} \right|\underset{y&#x3D;y_0}{_{x&#x3D;x_0}}&#x3D;\underset{\bigtriangleup x\rightarrow 0}{\lim}\dfrac{f\left( x_0+\bigtriangleup x,y_0 \right) -f\left( x_0,y_0 \right)}{\bigtriangleup x}$</p>
+<p><strong>可微：</strong>$\bigtriangleup S&#x3D;y \bigtriangleup x+ x \bigtriangleup y$</p>
+<h3 id="判断连续"><a href="#判断连续" class="headerlink" title="判断连续"></a>判断连续</h3><ul>
+<li><p>若有间断点$(0,0)$，可令$\left\{ \begin{array}{l}
+  x=\rho \cos \theta\\
+   	y=\rho \sin \theta\\
+  \end{array} \right. $</p>
+</li>
+<li>$f=\dfrac{x^py^q}{x^m+y^n}$
+
+  $\dfrac{p}{m}+\dfrac{q}{n}\left\{ \begin{array}{l}>1 \ \ \ \  f\left( 0,0 \right) =0\\
+  	\le 1 \ \ \ \  f\left( 0,0 \right) \text{不存在}\\
+  \end{array} \right. $
+
+
+</li>
+<li><p>凑$\dfrac{\sin \Box}\Box$</p>
+</li>
+<li><p>$\sin x&lt;x$</p>
+</li>
+<li>$\left. \begin{array}{r}
+  	x^2+y^2\\
+    	xy\\
+  \end{array} \right\} \Rightarrow x^2+y^2\ge 2xy$
+</li>
+<li><p><strong>积分不存在</strong></p>
+<ul>
+<li>找到两种不同趋近方式，使$\lim f(x,y)$存在但不相等</li>
+<li>特殊趋向：$y&#x3D;x$、$y&#x3D;x^2$</li>
+</ul>
+</li>
+</ul>
+<h3 id="求偏导"><a href="#求偏导" class="headerlink" title="求偏导"></a>求偏导</h3><p>求 $f(x_0,y_0)$ 偏导先带后求：$f'_{x_0}(x_0,y_0)=f'(x,y_0)|_{x=x_0}$</p>
+<h3 id="偏导数连续"><a href="#偏导数连续" class="headerlink" title="偏导数连续"></a>偏导数连续</h3><ol>
+<li>定义法求$f_x’(x_0,y_0)$，$f_y’(x_0,y_0)$</li>
+<li>公式法求$f_x’(x,y)$，$f_y’(x,y)$</li>
+<li>计算$\left\{ \begin{array}{l}
+   \underset{\begin{array}{c}
+     	\bigtriangleup x\rightarrow x_0\\
+     	\bigtriangleup y\rightarrow y_0\\
+   \end{array}}{\lim}f'_x\left( x,y \right) =f'_x\left( x_0,y_0 \right)\\
+   	\underset{\begin{array}{c}
+   	\bigtriangleup x\rightarrow x_0\\
+   	\bigtriangleup y\rightarrow y_0\\
+   \end{array}}{\lim}f'_y\left( x,y \right) =f'_y\left( x_0,y_0 \right)\\
+   \end{array} \right. $，若都成立，则$f(x,y)$在$(x_0,y_0)$偏导数连续</li>
+</ol>
+<h3 id="判断可微"><a href="#判断可微" class="headerlink" title="判断可微"></a>判断可微</h3><ol>
+<li>求$f_{x}^{‘}\left( x_0,y_0 \right) $与$f_{y}^{‘}\left( x_0,y_0 \right) $，若有一个不存在则直接不可微</li>
+<li>作全增量$\bigtriangleup z&#x3D;f\left( x_0+\bigtriangleup x,y_0+\bigtriangleup y \right) -f\left( x_0,y_0 \right) $</li>
+<li>表示为线性增量$A\bigtriangleup x+B\bigtriangleup y$，其中$A&#x3D;f_x’(x_0,y_0)$，$B&#x3D;f_y’(x_0,y_0)$</li>
+<li>作极限$\underset{\begin{array}{c}   \bigtriangleup x\rightarrow x_0\\     	\bigtriangleup y\rightarrow y_0\\   \end{array}}{\lim}\dfrac{\bigtriangleup z-\left( A\bigtriangleup x+B\bigtriangleup y \right)}{\sqrt{\left( \bigtriangleup x \right) ^2+\left( \bigtriangleup y \right) ^2}}\left\{ \begin{array}{l}   	=0\ z=f\left( x,y \right) \text{在}\left( x_0,y_0 \right) \text{可微}\\   	\ne 0\ z=f\left( x,y \right) \text{在}\left( x_0,y_0 \right) \text{不可微}\\   \end{array} \right. $</li>
+</ol>
+<ul>
+<li>$f=\dfrac{x^py^q}{x^m+y^n}\Rightarrow\dfrac{p+q}{m+1}=\left\{ \begin{array}{l}>1\left( 0,0 \right) \ \ \ \ \text{可微}\\
+  	\le 1\left( 0,0 \right) \  \text{不可微}\\
+  \end{array} \right. $</li>
+</ul>
+<h2 id="多元函数求导"><a href="#多元函数求导" class="headerlink" title="多元函数求导"></a>多元函数求导</h2><h3 id="链式求导"><a href="#链式求导" class="headerlink" title="链式求导"></a>链式求导</h3><p>设$z&#x3D;f(u,v),u&#x3D;\varphi(t),v&#x3D;\phi(t)，则\dfrac{dz}{dt}&#x3D;\dfrac{\partial z}{\partial u}\dfrac{du}{dt}+\dfrac{\partial z}{\partial v}\dfrac{dv}{dt}$</p>
+<h3 id="二阶导"><a href="#二阶导" class="headerlink" title="二阶导"></a>二阶导</h3><table>
+<thead>
+<tr>
+<th>原函数</th>
+<th>一阶导</th>
+<th>二阶导</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$f\left(u(x),v(x)\right)$</td>
+<td>$f'=u'f'_1+v'f'_2$ | $f''=u''f_1'+v''f'_2+u'^2f''_{11}+2u'v'f''_{12}+v'^2f''_{12}$</td>
+<td></td>
+</tr>
+<tr>
+<td>$f\left(u(x,y),v(x,y)\right)$</td>
+<td></td>
+<td>$f''_{xy}=u''_{xy}f_1'+v_{xy}f_2'\\+u_x'u_y'f''_{11}+(u_x'v_y'+u'_yv'_x)f''_{12}+v_x'v_y'f_{22}''$</td>
+</tr>
+</tbody></table>
+<h3 id="隐函数求导"><a href="#隐函数求导" class="headerlink" title="隐函数求导"></a>隐函数求导</h3><p>$\left| \begin{matrix}<br>    \dfrac{\partial F}{\partial u}&amp;		\dfrac{\partial F}{\partial v}\<br>    \dfrac{\partial G}{\partial u}&amp;		\dfrac{\partial G}{\partial v}\<br>\end{matrix} \right|&#x3D;\dfrac{\partial \left( F,G \right)}{\partial \left( u,v \right)}$</p>
+<p><strong>雅可比行列式</strong></p>
+<p>$\text{d}x\text{d}y&#x3D;|J|\text{d}u\text{d}v$<br>$\text{d}\alpha \text{d}\beta \text{d}\gamma &#x3D;|\dfrac{\partial \left( \alpha ,\beta ,\gamma \right)}{\partial \left( x,y,z \right)}|\text{d}x\text{d}y\text{d}z$</p>
+<p><strong>二元方程</strong>：$F(x,y,z)&#x3D;0$，则</p>
+
+$$
+\dfrac{\partial z}{\partial x}=-\dfrac{F'_x}{F'_{\boldsymbol{z}}}\ \ \ \ \dfrac{\partial z}{\partial y}=-\dfrac{F'_y}{F'_{\boldsymbol{z}}}
+$$
+
+
+<p><strong>三元方程组：</strong>$\left\{ \begin{array}{l}
+	F\left( x,y,z \right) =0\\
+	G\left( x,y,z \right) =0\\
+\end{array} \right. $，则</p>
+
+$$
+\dfrac{\text{d}y}{\text{d}x}=-\dfrac{\dfrac{\partial \left( F,G \right)}{\partial \left( x,z \right)}}{\dfrac{\partial \left( F,G \right)}{\partial \left( y,z \right)}}\ \ \ \ \ \ \ \ \dfrac{\text{d}z}{\text{d}x}=-\dfrac{\dfrac{\partial \left( F,G \right)}{\partial \left( y,x \right)}}{\dfrac{\partial \left( F,G \right)}{\partial \left( y,z \right)}}
+$$
+
+<p><strong>四元方程组：</strong>$\left\{ \begin{array}{l}
+	F\left( x,y,u,v \right) =0\\
+	G\left( x,y,u,v \right) =0\\
+\end{array} \right. $，则</p>
+
+$$
+\dfrac{\partial u}{\partial x}=-\dfrac{\dfrac{\partial \left( F,G \right)}{\partial \left( x,v \right)}}{\dfrac{\partial \left( F,G \right)}{\partial \left( u,v \right)}}\ \ \ \ \ \ \ \  \dfrac{\partial v}{\partial x}=-\dfrac{\dfrac{\partial \left( F,G \right)}{\partial \left( u,x \right)}}{\dfrac{\partial \left( F,G \right)}{\partial \left( u,v \right)}}
+\\
+\dfrac{\partial u}{\partial y}=-\dfrac{\dfrac{\partial \left( F,G \right)}{\partial \left( y,v \right)}}{\dfrac{\partial \left( F,G \right)}{\partial \left( u,v \right)}}\ \ \ \ \ \ \ \  \dfrac{\partial v}{\partial y}=-\dfrac{\dfrac{\partial \left( F,G \right)}{\partial \left( u,y \right)}}{\dfrac{\partial \left( F,G \right)}{\partial \left( u,v \right)}}
+$$
+
+
+<h2 id="极值与最值"><a href="#极值与最值" class="headerlink" title="极值与最值"></a>极值与最值</h2><h3 id="多元函数泰勒公式"><a href="#多元函数泰勒公式" class="headerlink" title="多元函数泰勒公式"></a>多元函数泰勒公式</h3>
+$f\left( x,y \right) =f\left( x_0,\ y_0 \right) 
+\\
++f_{x}^{'}\left( x_0,\ y_0 \right) \left( x-x_0 \right) +f_{y}^{'}\left( x_0,\ y_0 \right) \left( y-y_0 \right) 
+\\
++\dfrac{1}{2}\left( f_{xx}^{''}\left( x_0,\,\,y_0 \right) \left( x-x_0 \right) ^2+2f_{xy}^{''}\left( x_0,\,\,y_0 \right) \left( x-x_0 \right) \left( y-y_0 \right) +f_{yy}^{''}\left( x_0,\,\,y_0 \right) \left( y-y_0 \right) ^2 \right) $
+
+<h3 id="无条件极值"><a href="#无条件极值" class="headerlink" title="无条件极值"></a>无条件极值</h3><p><strong>必要条件</strong></p>
+
+$\left\{ \begin{array}{l}
+	f_{x}^{'}\left( x_0,y_0 \right) =0\\
+	f_{y}^{'}\left( x_0,y_0 \right) =0\\
+\end{array} \right.$
+
+<p><strong>充分条件</strong></p>
+
+$\left\{ \begin{array}{l}
+	f_{xx}^{''}\left( x_0,y_0 \right) =A\\
+	f_{xy}^{''}\left( x_0,y_0 \right) =B\\
+	f_{yy}^{''}\left( x_0,y_0 \right) =C\\
+    \end{array} \right. $，则$\bigtriangleup =B^2-AC=\left\{ \begin{array}{l}
+<0\ \ \text{极值 }\left\{ \begin{array}{l}
+A<0,\ \text{极大值}\\
+A>0,\ \text{极小值}\\
+\end{array} \right.\\
+=0\ \ \text{失效，取特殊路径}\\>0\ \ \text{非极值}\\
+\end{array} \right.$
+
+<h3 id="条件极值"><a href="#条件极值" class="headerlink" title="条件极值"></a>条件极值</h3>
+求目标函数$u=f(x,y,z)$在条件$\left\{ \begin{array}{l}
+	\varphi \left( x,y,z \right) =0\\
+	\psi \left( x,y,z \right) =0\\
+\end{array} \right. $下的最值
+
+<ol>
+<li>构造辅助函数$F(x,y,z,\lambda,\mu)&#x3D;f(x,y,z)+\lambda \varphi(x,y,z)+\mu \psi(x,y,z)$</li>
+<li>令$\left\{ \begin{array}{l}
+   	\begin{array}{l}
+      	F_{x}^{'}\\
+   \end{array}=f_{x}^{'}+\lambda \varphi _{x}^{'}+\mu \psi _{x}^{'}=0\\
+   	\begin{array}{l}
+   	F_{y}^{'}\\
+   \end{array}=f_{y}^{'}+\lambda \varphi _{y}^{'}+\mu \psi _{y}^{'}=0\\
+   	\begin{array}{l}
+   	F_{z}^{'}\\
+   \end{array}=f_{z}^{'}+\lambda \varphi _{z}^{'}+\mu \psi _{z}^{'}=0\\
+   	\begin{array}{l}
+   	F_{\lambda}^{'}\\
+   \end{array}=\varphi \left( x,y,z \right) =0\\
+   	\begin{array}{l}
+   	F_{\mu}^{'}\\
+   \end{array}=\psi \left( x,y,z \right) =0\\
+   \end{array} \right.$</li>
+<li>解上述方程组得备选点$P_i$，并求$u_{max}&#x3D;max(P_i),u_{min}&#x3D;min(P_i)$</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/12/04/%E5%AF%BC%E6%95%B0%E4%B8%8E%E5%BE%AE%E5%88%86/" data-id="clfjxdyjr001998si3ddu5iil" data-title="导数与微分" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/12/05/%E7%A7%AF%E5%88%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          积分
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/12/02/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">高等数学前置知识</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/">网络测量</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%8B%B1%E8%AF%AD/">英语</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/" rel="tag">网络测量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD/" rel="tag">英语</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 16.67px;">博客</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 20px;">数学</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%87%8F/" style="font-size: 10px;">网络测量</a> <a href="/tags/%E8%8B%B1%E8%AF%AD/" style="font-size: 16.67px;">英语</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 10px;">论文</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/02/15/Academic%20presentations/">Academic presentations</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/14/Writing-Resumes/">Writing Résumés</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/14/Drafting-Memos/">Drafting Memos</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/14/Drafting-Emails-for-Work/">Drafting Emails for Work</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/14/Writing-Instructions-Manuals/">Writing Instructions &amp; Manuals</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
